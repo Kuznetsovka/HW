@@ -1,4 +1,4 @@
-package geekbrains.lesson_2;
+package lesson2;
 
 public class Task5 {
 	private static final int minValue = 0;
@@ -11,15 +11,15 @@ public class Task5 {
     	//
     	
     	int n = 10;
-    	int min=maxValue;
-    	int max=minValue;
+    	int minimum=maxValue;
+    	int maximum=minValue;
     	int[] arr = fullArr(n);
     	for(int value: arr){
-    		min = (value<min) ? value:min;
-    		max = (value>max) ? value: max;
+			minimum = (value<minimum) ? value:minimum;
+			maximum = (value>maximum) ? value: maximum;
     	}
-    	System.out.println( "Maximum =" + max);
-    	System.out.println( "Minimum =" + min);
+    	System.out.println( "Maximum =" + maximum);
+    	System.out.println( "Minimum =" + minimum);
     }
     
     public static int fullArr(int n)[]{

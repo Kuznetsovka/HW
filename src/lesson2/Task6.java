@@ -1,4 +1,4 @@
-package geekbrains.lesson_2;
+package lesson2;
 
 public class Task6 {
 		/*
@@ -25,7 +25,7 @@ private static final double maxValue = 10;
 	  
     private static boolean checkBalance(int[] arr) {
     	for(int i=0;i<arr.length;i++){
-    		if (i!=arr.length)
+    		if (i!=arr.length-1)
     			if(sumPartArr(arr,0,i) == sumPartArr(arr,i+1,arr.length))
 					return true;
     	}
