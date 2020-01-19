@@ -7,6 +7,7 @@ private static final int minValue = 0;
 private static final double maxValue = 10;
 private static int lengthArr;
 private static int n;
+private static int[] arr;
 
 /*
 7. **** Написать метод, которому на вход подается одномерный массив и число n
@@ -18,7 +19,7 @@ private static int n;
     	Scanner sc = new Scanner(System.in);
         System.out.println("Введите длину массива");
         lengthArr = sc.nextInt();
-        int[] arr = fullArr(lengthArr);
+        fullArr(lengthArr);
 		System.out.println();
 		System.out.println("Введите смещение");
     	n = sc.nextInt();
@@ -26,7 +27,7 @@ private static int n;
     	change(arr,n);
     }
 
-    private static void change(int[] arr, int n) {
+    private static void change(int[] arr,int n) {
 //    	 С использованием 2-го массива все просто
     	int x;
     	int count = 0;
@@ -46,9 +47,9 @@ private static int n;
 			} else {
 				//смещение массива приводит к зацикливанию
 				if (n>0){
-				    shiftPositive(arr);
+				    shiftPositive();
                 } else {
-				    shiftNegative(arr);
+				    shiftNegative();
                 }
 			}
 		}
@@ -56,7 +57,7 @@ private static int n;
             System.out.print(value);
     }
 
-    private static int shiftPositive(int[] arr)[]{
+    private static void shiftPositive(){
         int cycle = Math.abs(lengthArr / n);
         int count=0;
         for (int j = 0; j < n; j++) {
@@ -71,13 +72,12 @@ private static int n;
                 i = newI;
             } while ((count)%cycle!=0);
         }
-        return arr;
     }
 
-    private static int shiftNegative(int[] arr)[]{
+    private static void shiftNegative(){
         int cycle = Math.abs(lengthArr / n);
         int count=0;
-        for (int j = 0; j > n; j--) {
+        for (int j = lengthArr-1; j > lengthArr+n-1; j--) {
             int forLoad=arr[j];
             int i=j;
             do{
@@ -89,31 +89,26 @@ private static int n;
                 i = newI;
             } while ((count)%cycle!=0);
         }
-        return arr;
     }
 
 
 	private static boolean isMirror(int n) {
-		if (lengthArr%n==0)
-			return true;
-		else
-			return false;
+		return (lengthArr%n==0);
 	}
 
 	private static int NewIndex(int i, int n) {
 		if ((i+n) >lengthArr-1 || (i+n)<0){
-			return Math.abs(lengthArr-(i+n));
+			return (lengthArr-Math.abs(i+n));
 		}else{
 			return i+n;
 		}
 	}
-	public static int fullArr(int n)[]{
+	public static void fullArr(int n){
     	int[] arr = new int[n];
     	for(int i=0;i< arr.length;i++){
     		arr[i] = randomArr();
     		System.out.print(arr[i]);
     	}
-    	return arr;
     }
 	private static int randomArr(){
 		return  minValue + (int) (Math.random() * maxValue) ;
