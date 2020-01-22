@@ -70,6 +70,7 @@ public class Lesson4 {
         }
         System.out.println();
     }
+
     private static int ind(int i) {
         return i+1;
     }
@@ -106,7 +107,6 @@ public class Lesson4 {
     }
 
     private static int enterXY(char chr) {
-
         System.out.println("Введите координату " + chr);
         try {
         if (!sc.hasNextInt()){
@@ -127,23 +127,45 @@ public class Lesson4 {
         if (x < 0 || x >= SIZE || y < 0 || y >= SIZE) return false;
         return (map[y][x] == DOT_EMPTY);
     }
+
     public static boolean checkWin(char chr) {
-        int count = 0;
-        int countDia = 0;
+        int count1 = 0;
+        int countDia1 = 0;
+        int count2 = 0;
+        int countDia2 = 0;
         char[][] arr = map;
-        for (int tries = 0; tries < 3; tries++){
-            for (int i = 0; i < SIZE; i++) {
-                for (int j = 0; j < SIZE; j++) {
-                    if (arr[i][j] == chr) count++;
-                    if (arr[j][j] == chr && i==j) countDia++;
-                }
-                if (count == DOTS_TO_WIN) return true; else count = 0;
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (arr[i][j] == chr) count1++;
+                if (arr[j][j] == chr && i == j) countDia1++;
+                if (arr[j][i] == chr) count2++;
+                if (arr[i][i] == chr && i == j) countDia2++;
             }
-            if (countDia == DOTS_TO_WIN) return true; else countDia = 0;
-            arr = rotateMap(map);
         }
+        if (count1 == DOTS_TO_WIN) return true;
+        if (countDia1 == DOTS_TO_WIN) return true;
+        if (count2 == DOTS_TO_WIN) return true;
+        if (countDia2 == DOTS_TO_WIN) return true;
         return false;
     }
+// Ниже второй рабочий вариант оценки победы. Какой вариант лучше? Тут кода и условий меньше, но добавляется еще один метод и цикл, хотя и с прерывателем.
+    /*  public static boolean checkWin(char chr) {
+       int count = 0;
+       int countDia = 0;
+       char[][] arr = map;
+       for (int tries = 0; tries < 3; tries++){
+           for (int i = 0; i < SIZE; i++) {
+               for (int j = 0; j < SIZE; j++) {
+                   if (arr[i][j] == chr) count++;
+                   if (arr[j][j] == chr && i==j) countDia++;
+               }
+               if (count == DOTS_TO_WIN) return true; else count = 0;
+           }
+           if (countDia == DOTS_TO_WIN) return true; else countDia = 0;
+           arr = rotateMap(map);
+       }
+       return false;
+   }
 
     private static char[][] rotateMap(char[][] map) {
         char[][] result = new char[SIZE][SIZE];
@@ -151,8 +173,9 @@ public class Lesson4 {
             for (int j = 0; j < SIZE; j++) {
                 result[i][j] = map[SIZE - j - 1][i];
             }
-
         }
         return result;
     }
+
+   */
 }
