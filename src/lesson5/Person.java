@@ -19,6 +19,10 @@ public class Person {
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void info() {
         System.out.println("ID: " +id+"\nИмя пользователя: " + name + "\nВозраст: " + age + "\nДолжность: " + post + "\nЗартплата: " + salary + "\nТелефон: +7 9" + phone + "\nEmail: " + email + "\n");
     }
