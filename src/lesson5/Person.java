@@ -4,12 +4,12 @@ public class Person {
      String name;
      String post;
      String email;
-     long phone;
+     String phone;
      int salary;
      int age;
      int id;
 
-    public Person(int id,String name, int age, String post, int salary, long phone, String email) {
+    public Person(int id,String name, int age, String post, int salary, String phone, String email) {
         this.id = id;
         this.name = name;
         this.post = post;
@@ -24,6 +24,6 @@ public class Person {
     }
 
     public void info() {
-        System.out.println("ID: " +id+"\nИмя пользователя: " + name + "\nВозраст: " + age + "\nДолжность: " + post + "\nЗартплата: " + salary + "\nТелефон: +7 9" + phone + "\nEmail: " + email + "\n");
+        System.out.println("ID: " +id+"\nИмя пользователя: " + name + "\nВозраст: " + age + "\nДолжность: " + post + "\nЗартплата: " + salary + "\nТелефон: " + phone + "\nEmail: " + email + "\n");
     }
 }
