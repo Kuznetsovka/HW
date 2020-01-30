@@ -20,7 +20,7 @@ public class Dog extends Animal{
     public void run(int distance) {
         final int maxDistance = 500;
         if (distance>=maxDistance)
-            super.run(maxDistance);
+            super.runLimit(distance,maxDistance);
         else
             super.run(distance);
     }

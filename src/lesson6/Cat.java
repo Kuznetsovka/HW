@@ -13,7 +13,7 @@ public class Cat extends Animal{
     public void run(int distance) {
         final int maxDistance = 200;
         if (distance>=maxDistance)
-            super.run(maxDistance);
+            super.runLimit(distance,maxDistance);
         else
             super.run(distance);
     }
