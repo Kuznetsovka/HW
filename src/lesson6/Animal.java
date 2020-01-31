@@ -1,6 +1,6 @@
 package lesson6;
 
-public abstract class Animal {
+public class Animal {
     protected String name;
     private static int numAnimals;
     private int maxDistance;
