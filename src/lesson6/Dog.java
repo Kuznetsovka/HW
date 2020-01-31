@@ -1,15 +1,9 @@
 package lesson6;
 
 public class Dog extends Animal{
-    private String name;
     private static int numDogs;
-
     public static int getNumDogs() {
         return numDogs;
-    }
-
-    public static void setNumDogs(int numDogs) {
-        Dog.numDogs = numDogs;
     }
 
     public Dog(String name) {
@@ -20,7 +14,7 @@ public class Dog extends Animal{
     public void run(int distance) {
         final int maxDistance = 500;
         if (distance>=maxDistance)
-            super.runLimit(distance,maxDistance);
+            super.runLimit(maxDistance);
         else
             super.run(distance);
     }
