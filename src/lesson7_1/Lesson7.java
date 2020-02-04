@@ -8,27 +8,46 @@ public class Lesson7 {
     private static final int MAX_EAT = 100;
     private static Random appetitRandomize = new Random();
     public static void main(String[] args) {
-        int j = 0;
         Cat[] cat = new Cat[CAT_COUNT];
         Plate[] plate = new Plate[PLATE_COUNT];
-        for (int i = 0; i < CAT_COUNT; i++) {
-        cat[i] = createCat(i);
-        cat[i].info();
-        while (j < PLATE_COUNT-1 && !cat[i].getFull()) {
-            plate[j] = createPlate(j);
-            cat[i].eat(plate[j]);
-            cat[i].info();
-            plate[j].info();
-            j++;
+        for (int i = 0; i < PLATE_COUNT; i++) {
+            plate[i] = createPlate(i);
+            System.out.println(plate[i]);
         }
-        j=0;
+        infoSplit();
+        for (int i = 0; i < CAT_COUNT; i++) {
+            cat[i] = createCat(i);
+            processEating(cat[i], plate);
+            infoSplit();
+        }
+        for (int i = 0; i < CAT_COUNT; i++)
+            System.out.println(cat[i]);
+        for (int i = 0; i < PLATE_COUNT; i++)
+            System.out.println(plate[i]);
+    }
+
+    private static void infoSplit() {
         System.out.println("------");
     }
-}
+    private static void processEating(Cat cat, Plate[] plate) {
+        int i = 0;
+        while (isGoEating(i,cat)) {
+            cat.eat(plate[i]);
+            cat.info();
+            System.out.println(plate[i]);
+            i++;
+            if (isGoEating(i,cat))
+                System.out.println("---");
+        }
+    }
+    private static boolean isGoEating(int i,Cat cat) {
+        return (i < PLATE_COUNT && !cat.getFull());
+    }
+
     private static Cat createCat(int i) {
         TypeFood typeFoodCat = new TypeFood();
         return new Cat(
-                "name" + i,
+                "Кот #" + (i + 1),
                 appetitRandomize.nextInt(MAX_EAT),
                 typeFoodCat);
     }
@@ -37,7 +56,8 @@ public class Lesson7 {
         TypeFood typeFoodPlate = new TypeFood();
         return new Plate(
                 j,
-                appetitRandomize.nextInt(CAT_COUNT * MAX_EAT/2),
+                appetitRandomize.nextInt(CAT_COUNT * MAX_EAT * 2),
                 typeFoodPlate);
     }
+
 }

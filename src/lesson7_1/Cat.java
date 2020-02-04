@@ -3,7 +3,7 @@ package lesson7_1;
 public class Cat {
     private String name;
     private int appetite;
-    protected TypeFood typeFoodCat;
+    protected TypeFood typeFood;
     private boolean full;
 
     public void setFull(boolean full) {
@@ -17,13 +17,13 @@ public class Cat {
     public Cat(String name, int appetite, TypeFood typeFood) {
         this.name = name;
         this.appetite = appetite;
-        this.typeFoodCat = typeFood;
+        this.typeFood = typeFood;
         this.full = false;
     }
     public void eat(Plate p) {
         while (!isFull()) {
 
-            if (typeFoodCat.equals(p.getTypeFood())){
+            if (getStrTypeF().equals(p.getStrTypeF())){
                 p.decreaseFood(appetite);
                 if (p.getIsEating()){
                     infoEating(getName());
@@ -46,7 +46,10 @@ public class Cat {
         System.out.println("Кот: " + name + " поел");
     }
     public void info() {
-        System.out.println("Кот: " + getName() + ", Ест: " + typeFoodCat.getType() + ", Аппетит: " + getAppetite() + ", Сытый: " + getFull());
+        System.out.println("Кот: " + getName() + ", Сытость: " + getFull());
+    }
+    public String toString(){
+        return getName() + ", Ест: " + typeFood.getType() + ", Аппетит: " + getAppetite() + ", Сытость: " + getFull();
     }
     public boolean getFull() {
         return full;
@@ -58,5 +61,9 @@ public class Cat {
 
     public int getAppetite() {
         return appetite;
+    }
+
+    public String getStrTypeF() {
+        return typeFood.getType();
     }
 }

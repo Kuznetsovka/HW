@@ -7,20 +7,15 @@ public class TypeFood {
     private static String[] arrFood = new String[] {
             "Whiscas",
             "Kitekat",
-            "Brit"};
+            "Brit"
+    };
     private static Random typeFoodRandomize = new Random();
 
-    public TypeFood(){
+    public TypeFood() {
         this.type = arrFood[typeFoodRandomize.nextInt(arrFood.length)];
     }
 
     public String getType() {
         return type;
     }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-
 }

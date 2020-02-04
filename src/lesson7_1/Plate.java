@@ -24,7 +24,7 @@ public class Plate {
         isEating = b;
     }
     public void increaseFood(int n) {
-        System.out.println(n + " еды добавлено в тарелку");
+        System.out.println(n + " еды добавлено в тарелку #" + getNumber());
         food += n;
     }
 
@@ -36,18 +36,22 @@ public class Plate {
         return typeFood;
     }
 
+    public String getStrTypeF() {
+        return typeFood.getType();
+    }
+
     public int getFood() {
         return food;
     }
 
     public int getNumber() {
-        return number;
+        return number+1;
     }
 
     private void emptyFood(int n) {
-        System.out.println(n + " еды в тарелке нет");
+        System.out.println(n + " еды в тарелке #" + getNumber() +" нет");
     }
-    public void info() {
-        System.out.println("Тарелка #" + getNumber() + ", Корм: "+ typeFood.getType() + ", В тарелке осталось:  " + getFood() + " еды");
+    public String toString() {
+        return "Тарелка #" + getNumber() + ", Корм: "+ typeFood.getType() + ", В тарелке осталось:  " + getFood() + " еды";
     }
 }
