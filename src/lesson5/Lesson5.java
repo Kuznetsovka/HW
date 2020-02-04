@@ -8,7 +8,7 @@ public class Lesson5 {
         persArray[2] = new Person(3,"Пупкина Анна", 52 ,"Дизайнер",70000, "+7 916 222 22 22","ap@mail.com");
         persArray[3] = new Person(4,"Кукушкин Егор", 51 ,"Frontend разработчик",100000, "+7 916 333 33 33","ek@mail.com");
         persArray[4] = new Person(5,"Кукушкина Марианна", 34 ,"Бухгалтер",100000, "+7 916 444 44 44","mk@mail.com");
-        for(Person value: persArray)
-            if(value.age>50) value.info();
+        for(Person person: persArray)
+            if(person.age>50) person.info();
     }
 }
