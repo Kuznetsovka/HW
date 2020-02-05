@@ -6,15 +6,14 @@ public class Dog extends Animal{
         return numDogs;
     }
 
-    public Dog(String name) {
-        super(name);
+    public Dog(String name,int maxDistance) {
+        super(name,maxDistance);
         numDogs++;
     }
     @Override
     public void run(int distance) {
-        final int maxDistance = 500;
-        if (distance>=maxDistance)
-            super.runLimit(maxDistance);
+        if (distance>=getMaxDistance())
+            super.runLimit(getMaxDistance());
         else
             super.run(distance);
     }

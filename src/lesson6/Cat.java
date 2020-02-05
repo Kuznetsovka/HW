@@ -3,16 +3,15 @@ package lesson6;
 public class Cat extends Animal{
     static int numCats;
 
-    public Cat(String name) {
-        super(name);
+    public Cat(String name,int maxDistance) {
+        super(name,maxDistance);
         numCats++;
     }
 
     @Override
     public void run(int distance) {
-        final int maxDistance = 200;
-        if (distance>=maxDistance)
-            super.runLimit(maxDistance);
+        if (distance>=getMaxDistance())
+            super.runLimit(getMaxDistance());
         else
             super.run(distance);
     }

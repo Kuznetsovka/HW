@@ -2,10 +2,16 @@ package lesson6;
 
 public class Animal {
     protected String name;
+    private int maxDistance;
     private static int numAnimals;
 
-    public Animal(String name) {
+    public int getMaxDistance() {
+        return maxDistance;
+    }
+
+    public Animal(String name, int maxDistance) {
         this.name = name;
+        this.maxDistance = maxDistance;
         numAnimals++;
     }
 
