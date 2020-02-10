@@ -77,3 +77,4 @@ $RECYCLE.BIN/
 
 cobertura.xml
 # End of https://www.gitignore.io/api/macos,linux,windows,vapor
+/lesson7_1/
