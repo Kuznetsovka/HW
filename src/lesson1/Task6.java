@@ -12,9 +12,6 @@ public class Task6 {
         sc.close();
     }
     public static boolean negativity(int a){
-        if (a<0)
-            return true;
-        else
-            return false;
+        return (a<0);
     }
 }
