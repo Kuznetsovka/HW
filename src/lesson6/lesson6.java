@@ -1,5 +1,7 @@
 package lesson6;
 
+import javax.swing.*;
+
 public class lesson6 {
     public static void main(String[] args) {
         // С помощью ООП никогда не писал, только читал. Поэтому прощупываю!
